@@ -1,3 +1,4 @@
+/* eslint-disable jest/valid-expect-in-promise */
 import {booking, api_method} from '../endpoints/endpoints'
 
 /* eslint-disable no-undef */
