@@ -1,8 +1,8 @@
 /* eslint-disable jest/valid-expect-in-promise */
 /* eslint-disable no-undef */
-import {loginPage} from '../../pageObjects/pageElements'
+import { loginPage } from '../../pageObjects/pageElements'
 
-describe('Register module', () => {
+describe('Login module', () => {
 
     before(() => {
         cy.log("in before")
@@ -15,18 +15,31 @@ describe('Register module', () => {
     beforeEach(() => {
         cy.log("in beforeEach")
     })
-    
+
     afterEach(() => {
         cy.log("in afterEach")
     })
 
     it('Login is correct', () => {
-        cy.fixture('localData.json').then((localData) => {
-        cy.log(localData)
-        // cy.get(loginPage.email).type(localData.email)
-        // cy.get(loginPage.password).type(localData.password)
-        // cy.get(loginPage.submit).click()
+        cy.fixture('demoLogin.json').then((demoLogin) => {
+            cy.log(demoLogin)
+            cy.visit(demoLogin.demoURL)
+            cy.get(loginPage.email).type(demoLogin.email)
+            cy.get(loginPage.password).type(demoLogin.password)
+            cy.get(loginPage.submit).click()
+            cy.contains(demoLogin.logoText)
+        })
     })
+
+    it('Login with wrong credentials', () => {
+        cy.fixture('demoLogin.json').then((demoLogin) => {
+            cy.log(demoLogin)
+            cy.visit(demoLogin.demoURL)
+            cy.get(loginPage.email).type(demoLogin.email + 'wrong')
+            cy.get(loginPage.password).type(demoLogin.password)
+            cy.get(loginPage.submit).click()
+            cy.contains(demoLogin.errorMSG)
+        })
     })
 
 })

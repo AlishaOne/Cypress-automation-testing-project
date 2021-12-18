@@ -1,0 +1,7 @@
+{
+    "email" : "Admin",
+    "password": "admin123",
+    "demoURL": "https://opensource-demo.orangehrmlive.com/index.php/auth/login",
+    "logoText": "OrangeHRM",
+    "errorMSG": "Invalid credentials"
+}

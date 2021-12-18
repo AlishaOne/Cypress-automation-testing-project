@@ -1,0 +1,11 @@
+{
+    "firstname": "JK",
+    "lastname": "Rolling",
+    "totalprice": 50,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2021-12-01",
+        "checkout": "2021-12-01"
+    },
+    "additionalneeds": "no"
+}
