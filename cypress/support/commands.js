@@ -37,7 +37,7 @@ Cypress.Commands.add('add_a_booking', () => {
 })
 Cypress.Commands.add('login', (email, password) => {
     cy.fixture('/demoLogin.json').then((demoLogin) => {
-        email = demoLogin.email, password = demoLogin.password
+        email, password = demoLogin.email, demoLogin.password
         cy.log(demoLogin)
         cy.visit(demoLogin.demoURL)
         cy.get(loginPage.email).type(email)

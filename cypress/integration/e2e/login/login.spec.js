@@ -14,6 +14,11 @@ describe('Login module', () => {
 
     beforeEach(() => {
         cy.log("in beforeEach")
+        cy.fixture('demoLogin.json').then((demoLogin) => {
+            cy.visit(demoLogin.demoURL)
+            cy.contains(demoLogin.logoText)
+
+        })
     })
 
     afterEach(() => {
@@ -22,8 +27,6 @@ describe('Login module', () => {
 
     it('Login is correct', () => {
         cy.fixture('demoLogin.json').then((demoLogin) => {
-            cy.log(demoLogin)
-            cy.visit(demoLogin.demoURL)
             cy.get(loginPage.email).type(demoLogin.email)
             cy.get(loginPage.password).type(demoLogin.password)
             cy.get(loginPage.submit).click()
@@ -33,8 +36,6 @@ describe('Login module', () => {
 
     it('Login with wrong credentials', () => {
         cy.fixture('demoLogin.json').then((demoLogin) => {
-            cy.log(demoLogin)
-            cy.visit(demoLogin.demoURL)
             cy.get(loginPage.email).type(demoLogin.email + 'wrong')
             cy.get(loginPage.password).type(demoLogin.password)
             cy.get(loginPage.submit).click()
