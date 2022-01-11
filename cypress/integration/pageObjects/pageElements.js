@@ -29,6 +29,23 @@ const headerPage = {
     logout: "//a[text()='Logout']",
 }
 
+const widgetsPage = {
+    widgets: ".header-text",
+    widgetText: "Widgets",
+    mainHeader: ".main-header",
+    accordian: "//span[text()='Accordian']",
+    sectionOneHeader: "#section1Heading",
+    sectionOneText: "Lorem Ipsum",
+    sectionTwoHeader: "#section2Heading",
+    sectionTwoText: "Lorem Ipsum comes from sections 1.10.32 and 1.10.33",
+    autoComplete: "//span[text()='Accordian']",
+    autoCompleteText: "Auto Complete",
+    autoCompleteInputMultiColor: "#autoCompleteMultipleInput",
+    autoCompleteInputOneColor: "#autoCompleteSingleInput",
+    autoCompleteInputColorRed: "red",
+    autoCompleteInputColorGreen: "green",
+
+}
 
 
 export default {
@@ -36,4 +53,5 @@ export default {
     loginPage,
     headerPage,
     forgotPassPage,
+    widgetsPage,
 }
