@@ -31,10 +31,12 @@ describe('Features', () => {
     it('Auto complete', () => {
         cy.xpath(widgetsPage.autoComplete).click()
         cy.contains(widgetsPage.autoCompleteText)
-        cy.get(widgetsPage.autoCompleteInputMultiColor).type(widgetsPage.autoCompleteInputColorRed + 'enter')
-        // cy.get(widgetsPage.autoCompleteInputMultiColor).type(widgetsPage.autoCompleteInputColorGreen)
+        cy.get(widgetsPage.autoCompleteInputMultiColor).type(widgetsPage.autoCompleteInputColorRed)
+        cy.get(widgetsPage.autoCompleteInputMultiColor).type(widgetsPage.autoCompleteInputColorGreen)
+        cy.get(widgetsPage.autoCompleteInputOneColor).type(widgetsPage.autoCompleteInputColorBlue)
         cy.contains(widgetsPage.autoCompleteInputColorRed)
-        // cy.contains(widgetsPage.autoCompleteInputColorGreen)
+        cy.contains(widgetsPage.autoCompleteInputColorGreen)
+        cy.contains(widgetsPage.autoCompleteInputColorBlue)
 
     })
 })
