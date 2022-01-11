@@ -34,9 +34,9 @@ describe('Features', () => {
         cy.get(widgetsPage.autoCompleteInputMultiColor).type(widgetsPage.autoCompleteInputColorRed)
         cy.get(widgetsPage.autoCompleteInputMultiColor).type(widgetsPage.autoCompleteInputColorGreen)
         cy.get(widgetsPage.autoCompleteInputOneColor).type(widgetsPage.autoCompleteInputColorBlue)
-        cy.contains(widgetsPage.autoCompleteInputColorRed)
-        cy.contains(widgetsPage.autoCompleteInputColorGreen)
-        cy.contains(widgetsPage.autoCompleteInputColorBlue)
+        cy.contains("Red") //case sensitive
+        cy.contains("Green")
+        cy.contains("Blue")
 
     })
 })
