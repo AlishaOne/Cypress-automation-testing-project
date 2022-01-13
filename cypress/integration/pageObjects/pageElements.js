@@ -38,12 +38,13 @@ const widgetsPage = {
     sectionOneText: "Lorem Ipsum",
     sectionTwoHeader: "#section2Heading",
     sectionTwoText: "Lorem Ipsum comes from sections 1.10.32 and 1.10.33",
-    autoComplete: "//span[text()='Accordian']",
+    autoComplete: "//span[text()='Auto Complete']",
     autoCompleteText: "Auto Complete",
     autoCompleteInputMultiColor: "#autoCompleteMultipleInput",
     autoCompleteInputOneColor: "#autoCompleteSingleInput",
-    autoCompleteInputColorRed: "red",
-    autoCompleteInputColorGreen: "green",
+    autoCompleteInputColorRed: "red{enter}",
+    autoCompleteInputColorGreen: "green{enter}",
+    autoCompleteInputColorBlue: "blue{enter}",
 
 }
 
