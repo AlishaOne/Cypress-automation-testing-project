@@ -1,3 +1,8 @@
 {
-    "baseUrl": "https://restful-booker.herokuapp.com"
+    "baseUrl": "https://restful-booker.herokuapp.com",
+    "video": false,
+    "reporter": "cypress-multi-reporters",
+    "reporterOptions": {
+    "configFile": "reporter-config.json"
+    }
 }
