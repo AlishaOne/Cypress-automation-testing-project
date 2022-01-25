@@ -45,6 +45,10 @@ const widgetsPage = {
     autoCompleteInputColorRed: "red{enter}",
     autoCompleteInputColorGreen: "green{enter}",
     autoCompleteInputColorBlue: "blue{enter}",
+    dataPicker: "//span[text()='Date Picker']",
+    datePickerText: "Date Picker",
+    datePickerYear: "#datePickerMonthYearInput",
+    datePickerTime: "#dateAndTimePickerInput",
 
 }
 

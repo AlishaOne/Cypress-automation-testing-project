@@ -19,7 +19,7 @@ describe('Features', () => {
         cy.log("in afterEach")
     })
 
-    it('Accordian', () => {
+    it.skip('Accordian', () => {
         cy.xpath(widgetsPage.accordian).click()
         cy.get(widgetsPage.sectionOneHeader).click()
         cy.contains(widgetsPage.sectionOneText)
@@ -28,7 +28,7 @@ describe('Features', () => {
 
     })
 
-    it('Auto complete', () => {
+    it.skip('Auto complete', () => {
         cy.xpath(widgetsPage.autoComplete).click()
         cy.contains(widgetsPage.autoCompleteText)
         cy.get(widgetsPage.autoCompleteInputMultiColor).type(widgetsPage.autoCompleteInputColorRed)
@@ -37,6 +37,23 @@ describe('Features', () => {
         cy.contains("Red") //case sensitive
         cy.contains("Green")
         cy.contains("Blue")
+
+    })
+
+    it('Date Picker', () => {
+        const yearOptions = { month: '2-digit', day: '2-digit', year: 'numeric' }
+        const timeOptions = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' }
+        let dateYear = new Date(Date.now()).toLocaleString('en-US', yearOptions)
+        let dateTime = new Date(Date.now()).toLocaleTimeString('en-US', timeOptions)
+        cy.xpath(widgetsPage.dataPicker).click()
+        cy.contains(widgetsPage.datePickerText)
+        cy.get(widgetsPage.datePickerYear).clear()
+        cy.get(widgetsPage.datePickerYear).type(dateYear + '{enter}')
+        cy.get(widgetsPage.datePickerTime).type(dateTime + '{enter}')
+        cy.get(widgetsPage.datePickerYear).should('have.value', dateYear)
+        // reformat January 24, 2022, 5:47 PM to January 24, 2022 5:47 PM
+        dateTime = dateTime.replace(',', '-').replace(',', '').replace('-', ',')
+        cy.get(widgetsPage.datePickerTime).should('have.value', dateTime)
 
     })
 })
