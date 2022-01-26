@@ -10,7 +10,7 @@ require('cypress-xpath')
 ```
 ### Code coverage
 ```
-npm install -D @cypress/code-coverage
+yarn add -D @cypress/code-coverage
 ```
 In cypress/support/index.js 
 
