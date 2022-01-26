@@ -2,6 +2,7 @@
 /* eslint-disable no-undef */
 import { loginPageDemoQA, widgetsPage } from '../../pageObjects/pageElements'
 import { FEATURE_FILE_LOGIN_DEMOQA } from '../../constants'
+import getDateAndTime from '../../utils'
 
 describe('Features', () => {
 
@@ -19,7 +20,7 @@ describe('Features', () => {
         cy.log("in afterEach")
     })
 
-    it('Accordian', () => {
+    it.skip('Accordian', () => {
         cy.xpath(widgetsPage.accordian).click()
         cy.get(widgetsPage.sectionOneHeader).click()
         cy.contains(widgetsPage.sectionOneText)
@@ -28,7 +29,7 @@ describe('Features', () => {
 
     })
 
-    it('Auto complete', () => {
+    it.skip('Auto complete', () => {
         cy.xpath(widgetsPage.autoComplete).click()
         cy.contains(widgetsPage.autoCompleteText)
         cy.get(widgetsPage.autoCompleteInputMultiColor).type(widgetsPage.autoCompleteInputColorRed)
@@ -39,4 +40,20 @@ describe('Features', () => {
         cy.contains("Blue")
 
     })
+
+    it('Date Picker', () => {
+        let { dateYear, dateTime } = getDateAndTime()
+        cy.xpath(widgetsPage.dataPicker).click()
+        cy.contains(widgetsPage.datePickerText)
+        cy.get(widgetsPage.datePickerYear).clear()
+        cy.get(widgetsPage.datePickerYear).type(dateYear + '{enter}')
+        cy.get(widgetsPage.datePickerTime).type(dateTime + '{enter}')
+        cy.get(widgetsPage.datePickerYear).should('have.value', dateYear)
+        // reformat January 24, 2022, 5:47 PM to January 24, 2022 5:47 PM
+        dateTime = dateTime.replace(',', '-').replace(',', '').replace('-', ',')
+        cy.get(widgetsPage.datePickerTime).should('have.value', dateTime)
+
+    })
 })
+
+

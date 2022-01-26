@@ -27,5 +27,7 @@ yarn-error.log*
 *cypress/example*
 cypress/fixtures/example.json
 cypress/todo.txt
+cypress/screenshots/
 log/*
+junit-results/
 run-tests-in-multiple-browsers.sh
