@@ -2,6 +2,7 @@
 /* eslint-disable no-undef */
 import { loginPageDemoQA, widgetsPage } from '../../pageObjects/pageElements'
 import { FEATURE_FILE_LOGIN_DEMOQA } from '../../constants'
+import getDateAndTime from '../../utils'
 
 describe('Features', () => {
 
@@ -41,10 +42,7 @@ describe('Features', () => {
     })
 
     it('Date Picker', () => {
-        const yearOptions = { month: '2-digit', day: '2-digit', year: 'numeric' }
-        const timeOptions = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' }
-        let dateYear = new Date(Date.now()).toLocaleString('en-US', yearOptions)
-        let dateTime = new Date(Date.now()).toLocaleTimeString('en-US', timeOptions)
+        let { dateYear, dateTime } = getDateAndTime()
         cy.xpath(widgetsPage.dataPicker).click()
         cy.contains(widgetsPage.datePickerText)
         cy.get(widgetsPage.datePickerYear).clear()
@@ -57,3 +55,5 @@ describe('Features', () => {
 
     })
 })
+
+
