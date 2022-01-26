@@ -3,5 +3,6 @@ export default function getDateAndTime() {
     const timeOptions = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' }
     let dateYear = new Date(Date.now()).toLocaleString('en-US', yearOptions)
     let dateTime = new Date(Date.now()).toLocaleTimeString('en-US', timeOptions)
+
     return { dateYear, dateTime }
 }

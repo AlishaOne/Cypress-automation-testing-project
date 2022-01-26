@@ -49,6 +49,7 @@ describe('Features', () => {
         cy.get(widgetsPage.datePickerYear).type(dateYear + '{enter}')
         cy.get(widgetsPage.datePickerTime).type(dateTime + '{enter}')
         cy.get(widgetsPage.datePickerYear).should('have.value', dateYear)
+
         // reformat January 24, 2022, 5:47 PM to January 24, 2022 5:47 PM
         dateTime = dateTime.replace(',', '-').replace(',', '').replace('-', ',')
         cy.get(widgetsPage.datePickerTime).should('have.value', dateTime)
